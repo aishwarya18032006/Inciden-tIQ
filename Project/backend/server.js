@@ -36,6 +36,37 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
+
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`[SMTP] Environment: production. Loading SMTP configuration...`);
+    console.log(`[SMTP] Host: ${process.env.SMTP_HOST ? 'Configured' : 'Missing'}`);
+    console.log(`[SMTP] Port: ${process.env.SMTP_PORT ? 'Configured' : 'Missing'}`);
+    console.log(`[SMTP] Mail: ${process.env.SMTP_MAIL ? 'Configured' : 'Missing'}`);
+    console.log(`[SMTP] Pass: ${process.env.SMTP_PASS ? 'Configured' : 'Missing'}`);
+  }
+
+  const nodemailer = require('nodemailer');
+  if (process.env.SMTP_HOST && process.env.SMTP_PORT && process.env.SMTP_MAIL && process.env.SMTP_PASS) {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: Number(process.env.SMTP_PORT) === 465,
+      auth: {
+        user: process.env.SMTP_MAIL,
+        pass: process.env.SMTP_PASS
+      }
+    });
+
+    try {
+      await transporter.verify();
+      console.log('[SMTP] Connection successful. Ready to send emails.');
+    } catch (error) {
+      console.error('[SMTP] Connection failed during startup:', error.message);
+    }
+  } else {
+    console.warn('[SMTP] Missing one or more SMTP credentials. Email functionality may not work.');
+  }
+
   const aiService = require('./services/aiService');
   await aiService.testGeminiModels();
 });

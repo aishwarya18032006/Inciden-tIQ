@@ -256,23 +256,27 @@ exports.emailReport = (req, res) => {
     try {
       const pdfBuffer = await generatePDF(report);
 
-      if (!process.env.SMTP_EMAIL || process.env.SMTP_EMAIL === 'your_email@gmail.com' || !process.env.SMTP_PASSWORD) {
-        console.log('[MOCK EMAIL] Missing valid SMTP credentials in .env.');
-        console.log(`[MOCK EMAIL] Pretending to send RCA Report to ${to}...`);
-        console.log(`[MOCK EMAIL] Subject: ${subject}`);
-        return res.json({ message: 'Intelligence transmitted successfully (Mocked)' });
+      const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_MAIL', 'SMTP_PASS'];
+      const missingVars = requiredEnvVars.filter(key => !process.env[key]);
+      
+      if (missingVars.length > 0) {
+        return res.status(500).json({ 
+          error: `Failed to transmit. Missing SMTP credentials: ${missingVars.join(', ')}` 
+        });
       }
 
       let transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT),
+        secure: Number(process.env.SMTP_PORT) === 465,
         auth: {
-          user: process.env.SMTP_EMAIL,
-          pass: process.env.SMTP_PASSWORD
+          user: process.env.SMTP_MAIL,
+          pass: process.env.SMTP_PASS
         }
       });
 
       await transporter.sendMail({
-        from: process.env.SMTP_EMAIL,
+        from: process.env.SMTP_MAIL,
         to,
         subject,
         text: message,
@@ -287,7 +291,7 @@ exports.emailReport = (req, res) => {
       res.json({ message: 'Intelligence transmitted successfully' });
     } catch (error) {
       console.error('Email error:', error);
-      res.status(500).json({ error: 'Failed to transmit. Ensure SMTP credentials are correct.' });
+      res.status(500).json({ error: `Failed to transmit: ${error.message}` });
     }
   });
 };
