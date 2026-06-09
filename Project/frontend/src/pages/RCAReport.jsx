@@ -509,7 +509,7 @@ const RCAReport = () => {
               <p className="text-slate-500 font-medium mb-6">This will escalate the RCA report to the IT Manager dashboard for official review.</p>
               
               <form onSubmit={handleSubmitToManager} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2">Your Name</label>
                     <input type="text" required value={submitForm.name} onChange={e => setSubmitForm({...submitForm, name: e.target.value})} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 font-medium text-slate-900" />
@@ -527,7 +527,7 @@ const RCAReport = () => {
                   <label className="block text-sm font-bold text-slate-700 mb-2">Additional Notes (Optional)</label>
                   <textarea rows="3" value={submitForm.notes} onChange={e => setSubmitForm({...submitForm, notes: e.target.value})} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 font-medium text-slate-900" placeholder="Any context for the manager..." />
                 </div>
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <button type="button" onClick={() => setShowSubmitModal(false)} className="flex-1 py-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors">Cancel</button>
                   <button type="submit" disabled={submitting} className="flex-1 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-lg hover:shadow-blue-600/30 text-white font-bold rounded-xl disabled:opacity-50 transition-all">
                     {submitting ? 'Submitting...' : 'Confirm Submission'}

@@ -71,7 +71,7 @@ const ManagerReportCenter = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-slate-50 dark:bg-black/20 border-b border-slate-200 dark:border-[#27272A] text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-[#A1A1AA]">
+                <tr className="bg-slate-50 dark:bg-black/20 border-b border-slate-200 dark:border-[#27272A] text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-[#A1A1AA] whitespace-nowrap">
                   <th className="px-6 py-4">Incident Details</th>
                   <th className="px-6 py-4">Developer</th>
                   <th className="px-6 py-4">Severity</th>
@@ -85,7 +85,7 @@ const ManagerReportCenter = () => {
                   <tr key={report.id} className="hover:bg-blue-50/50 dark:hover:bg-[#18181B] transition-colors group">
                     <td className="px-6 py-5">
                       <p className="font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{report.incident_title || `Incident #${report.incident_id}`}</p>
-                      <p className="text-xs text-slate-500 dark:text-[#A1A1AA] truncate w-64 mt-1 font-light">{report.executive_summary}</p>
+                      <p className="text-xs text-slate-500 dark:text-[#A1A1AA] truncate max-w-[200px] sm:max-w-xs md:w-64 mt-1 font-light">{report.executive_summary}</p>
                     </td>
                     <td className="px-6 py-5 text-sm font-medium text-slate-700 dark:text-[#FAFAFA]">
                       {report.developer_name || `Dev #${report.developer_id}`}

@@ -88,7 +88,7 @@ const ManagerDashboard = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                <tr className="border-b border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap">
                   <th className="px-6 py-4">Developer</th>
                   <th className="px-6 py-4">Incident</th>
                   <th className="px-6 py-4">Severity</th>
@@ -174,7 +174,7 @@ const ManagerDashboard = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button onClick={() => setActionModal({ show: false, reportId: null, type: null })} className="flex-1 py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors">Cancel</button>
                 <button onClick={handleAction} className={`flex-1 py-3 px-4 text-white font-bold rounded-xl transition-colors ${actionModal.type === 'approve' ? 'bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20' : 'bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/20'}`}>
                   Confirm

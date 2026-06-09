@@ -17,12 +17,12 @@ const TopNav = () => {
     >
       
       {/* Left: Logo */}
-      <div className="flex-1 pl-2">
+      <div className="flex shrink-0 pl-2">
         <Link to="/" className="flex items-center gap-2 group inline-flex">
-          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
+          <div className="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
             <Hexagon className="h-5 w-5" fill="currentColor" strokeWidth={1} />
           </div>
-          <span className="font-black tracking-tight text-lg text-slate-800">IncidentIQ</span>
+          <span className="font-black tracking-tight text-lg text-slate-800 hidden sm:inline-block">IncidentIQ</span>
         </Link>
       </div>
 
@@ -30,7 +30,7 @@ const TopNav = () => {
       <div className="flex-1"></div>
 
       {/* Right: Actions */}
-      <div className="flex-1 flex justify-end items-center gap-2 pr-1">
+      <div className="flex shrink-0 justify-end items-center gap-2 pr-1">
         
         <motion.button 
           whileHover={{ scale: 1.05 }}

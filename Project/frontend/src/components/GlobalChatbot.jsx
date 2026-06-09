@@ -93,8 +93,7 @@ const GlobalChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="bg-white/90 backdrop-blur-3xl border border-white/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] rounded-[32px] flex flex-col relative overflow-visible mb-6"
-            style={{ width: '360px', height: '520px', maxHeight: '70vh' }}
+            className="bg-white/90 backdrop-blur-3xl border border-white/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] rounded-[32px] flex flex-col relative overflow-visible mb-6 w-[calc(100vw-3rem)] sm:w-[360px] h-[520px] max-h-[75vh]"
           >
             {/* Soft background glows inside panel */}
             <div className="absolute top-[-50px] right-[-50px] w-48 h-48 bg-purple-400/15 rounded-full blur-[60px] pointer-events-none" />

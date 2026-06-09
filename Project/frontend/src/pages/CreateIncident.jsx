@@ -220,7 +220,7 @@ const CreateIncident = () => {
                   placeholder="10:00 AM Deployment Started&#10;10:05 AM Error Rate Increased&#10;10:10 AM Service Unavailable&#10;10:20 AM Rollback Started"
                 />
                 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-wide">
                     <Upload className="h-4 w-4" /> Upload Timeline File
                     <input type="file" className="hidden" accept=".txt,.log,.csv" onChange={(e) => handleFileUpload('timeline', e)} />
@@ -229,7 +229,7 @@ const CreateIncident = () => {
                   <button 
                     disabled={!formData.timeline.trim()}
                     onClick={() => handleContinue(1)}
-                    className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold flex items-center gap-2 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                    className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
                   >
                     Continue <ChevronRight className="h-4 w-4" />
                   </button>
@@ -265,18 +265,18 @@ const CreateIncident = () => {
                   placeholder="[ERROR] 2024-03-10 10:05:22 Database connection timeout...&#10;[WARN] 2024-03-10 10:05:25 Retrying connection..."
                 />
                 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-wide">
                     <Upload className="h-4 w-4" /> Upload Log File
                     <input type="file" className="hidden" accept=".txt,.log" onChange={(e) => handleFileUpload('logs', e)} />
                   </label>
                   
-                  <div className="flex items-center gap-4">
-                    <button onClick={() => setActiveStep(1)} className="px-6 py-3.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">Back</button>
+                  <div className="flex w-full sm:w-auto items-center gap-4">
+                    <button onClick={() => setActiveStep(1)} className="flex-1 sm:flex-none px-6 py-3.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">Back</button>
                     <button 
                       disabled={!formData.logs.trim()}
                       onClick={() => handleContinue(2)}
-                      className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold flex items-center gap-2 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                      className="flex-1 sm:flex-none px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
                     >
                       Continue <ChevronRight className="h-4 w-4" />
                     </button>
@@ -316,24 +316,24 @@ const CreateIncident = () => {
                   placeholder="diff --git a/src/db/connection.js b/src/db/connection.js&#10;--- a/src/db/connection.js&#10;+++ b/src/db/connection.js&#10;- const timeout = 30000;&#10;+ const timeout = 5000;"
                 />
                 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-wide">
                     <Upload className="h-4 w-4" /> Upload Git Diff File
                     <input type="file" className="hidden" accept=".txt,.diff,.patch" onChange={(e) => handleFileUpload('gitDiff', e)} />
                   </label>
                   
-                  <div className="flex items-center gap-4">
-                    <button onClick={() => setActiveStep(2)} className="px-6 py-3.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">Back</button>
+                  <div className="flex w-full sm:w-auto items-center gap-2 sm:gap-4">
+                    <button onClick={() => setActiveStep(2)} className="flex-1 sm:flex-none px-4 py-3.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">Back</button>
                     <button 
                       onClick={() => handleSkip(3)}
-                      className="px-6 py-3.5 text-sm font-bold text-slate-400 hover:text-slate-700 transition-colors"
+                      className="flex-1 sm:flex-none px-4 py-3.5 text-sm font-bold text-slate-400 hover:text-slate-700 transition-colors"
                     >
                       Skip
                     </button>
                     <button 
                       disabled={!formData.gitDiff.trim()}
                       onClick={() => handleContinue(3)}
-                      className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold flex items-center gap-2 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                      className="flex-1 sm:flex-none px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
                     >
                       Continue <ChevronRight className="h-4 w-4" />
                     </button>
@@ -384,7 +384,7 @@ const CreateIncident = () => {
                    <p className="text-sm font-bold text-slate-400 uppercase tracking-widest animate-pulse">{loadingText}</p>
                 </div>
               ) : (
-                <div className="flex gap-4 w-full max-w-md justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center">
                   <button onClick={() => setActiveStep(3)} className="px-6 py-4 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">
                     Go Back
                   </button>

@@ -76,12 +76,12 @@ const RCAHistory = () => {
             className="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-xl font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
           />
         </div>
-        <div className="flex bg-white rounded-xl shadow-sm border border-slate-200 p-1">
+        <div className="flex flex-wrap bg-white rounded-xl shadow-sm border border-slate-200 p-1">
           {['All', 'Generated', 'Submitted', 'Approved', 'Rejected'].map(status => (
             <button 
               key={status}
               onClick={() => setFilterStatus(status)}
-              className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${filterStatus === status ? 'bg-slate-100 text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'}`}
+              className={`px-4 py-2 rounded-lg text-sm font-bold transition-all flex-1 sm:flex-none whitespace-nowrap ${filterStatus === status ? 'bg-slate-100 text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'}`}
             >
               {status}
             </button>
@@ -168,7 +168,7 @@ const RCAHistory = () => {
               </div>
               <h3 className="text-2xl font-black text-slate-900 mb-2">Delete Report</h3>
               <p className="text-slate-500 mb-8 font-medium">Are you sure you want to permanently delete this report? This action cannot be undone.</p>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button onClick={() => setDeleteModal({ show: false, id: null })} className="flex-1 py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors">Cancel</button>
                 <button onClick={handleDelete} className="flex-1 py-3 px-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-colors shadow-lg shadow-red-600/20">Delete</button>
               </div>
