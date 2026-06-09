@@ -1,4 +1,4 @@
-# 🚀 IncidentIQ
+#  IncidentIQ
 
 ### AI-Powered Incident Intelligence & Root Cause Analysis Platform
 
@@ -6,7 +6,7 @@ IncidentIQ is an intelligent incident analysis platform that helps developers an
 
 ---
 
-## 📌 Overview
+##  Overview
 
 Modern software systems generate large volumes of logs, deployment changes, and incident data. Manually investigating these incidents is time-consuming and error-prone.
 
@@ -20,25 +20,25 @@ and generating detailed AI-powered Root Cause Analysis (RCA) reports with confid
 
 ---
 
-# 🏗️ System Architecture
+#  System Architecture
 
 ![System Architecture](Project/Diagrams/System_Architecture.jpeg)
 
 ---
 
-# 🤖 AI Multi-Agent RCA Flow
+#  AI Multi-Agent RCA Flow
 
 ![AI Agent Flow](Project/Diagrams/MultiAgent_WorkFlow.jpeg)
 
 ---
 
-# 👥 User Workflow
+#  User Workflow
 
 ![User Flow](Project/Diagrams/UserWorkFlow.jpeg)
 
 ---
 
-# ✨ Features
+#  Features
 
 ## Developer Module
 
@@ -63,7 +63,7 @@ and generating detailed AI-powered Root Cause Analysis (RCA) reports with confid
 
 ---
 
-# 🧠 AI Provider Stack
+#  AI Provider Stack
 
 IncidentIQ uses a multi-provider AI architecture:
 
@@ -86,7 +86,7 @@ IncidentIQ uses a multi-provider AI architecture:
 
 ---
 
-# ⚙️ Technology Stack
+#  Technology Stack
 
 ## Frontend
 
@@ -128,40 +128,59 @@ IncidentIQ uses a multi-provider AI architecture:
 # 📂 Project Structure
 
 ```text
-IncidentIQ
+IncidentIQ/
+├── backend/
+│   ├── controllers/
+│   │   ├── aiController.js
+│   │   ├── authController.js
+│   │   ├── incidentsController.js
+│   │   └── reportsController.js
+│   ├── routes/
+│   │   ├── ai.js
+│   │   ├── auth.js
+│   │   ├── incidents.js
+│   │   └── reports.js
+│   ├── services/
+│   │   └── aiService.js
+│   ├── database/
+│   │   └── index.js
+│   ├── incidentiq.db (SQLite)
+│   ├── server.js
+│   └── package.json
 │
-├── frontend
-├── backend
-│
-├── Diagrams
-│   ├── system-architecture.png
-│   ├── ai-agent-flow.png
-│   └── user-flow.png
-│
-├── Documentation
-│
-└── README.md
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   │   ├── GlobalChatbot.jsx
+    │   │   └── layout/
+    │   │       ├── Layout.jsx
+    │   │       ├── Sidebar.jsx
+    │   │       └── TopNav.jsx
+    │   ├── pages/
+    │   │   ├── LoginPage.jsx
+    │   │   ├── RegisterPage.jsx
+    │   │   ├── DeveloperDashboard.jsx
+    │   │   ├── ManagerDashboard.jsx
+    │   │   ├── ManagerAnalytics.jsx
+    │   │   ├── CreateIncident.jsx
+    │   │   ├── RCAReport.jsx
+    │   │   └── more...
+    │   ├── context/
+    │   │   ├── AuthContext.jsx
+    │   │   └── ThemeContext.jsx
+    │   ├── App.jsx
+    │   ├── main.jsx
+    │   └── styles (CSS/Tailwind)
+    ├── public/
+    ├── vite.config.js
+    ├── tailwind.config.js
+    └── package.json
 ```
+
 
 ---
 
-# 🔐 Environment Variables
-
-Create a `.env` file inside the backend folder.
-
-```env
-JWT_SECRET=your_secret
-
-GEMINI_API_KEY=your_key
-
-GROQ_API_KEY=your_key
-
-OPENROUTER_API_KEY=your_key
-```
-
----
-
-# ▶️ Installation
+#  Installation
 
 Clone the repository:
 
@@ -183,7 +202,7 @@ npm install
 
 ---
 
-# ▶️ Run the Application
+#  Run the Application
 
 Backend:
 
@@ -201,7 +220,7 @@ npm run dev
 
 ---
 
-# 📄 RCA Report Output
+#  RCA Report Output
 
 IncidentIQ generates professional RCA reports containing:
 
@@ -225,7 +244,7 @@ Reports can be:
 
 ---
 
-# 🎯 Future Scope
+#  Future Scope
 
 * Kubernetes Integration
 * Jira Integration
@@ -238,12 +257,13 @@ Reports can be:
 
 # 👨‍💻 Team
 
-**Project Name:** IncidentIQ
+**Project Name:Tect Tetra**
+**Team Members : Aishwarya R | Sudarshan P | Nithiskumar N | Pradhakshini P
 
 **Category:** AI-Powered Incident Intelligence Platform
 
 ---
 
-# 📜 License
+#  License
 
 This project is developed for educational, research, and hackathon purposes.
