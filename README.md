@@ -28,7 +28,7 @@ and generating detailed AI-powered Root Cause Analysis (RCA) reports with confid
 
 # 🤖 AI Multi-Agent RCA Flow
 
-![AI Agent Flow](./Diagrams/ai-agent-flow.png)
+![AI Agent Flow](Project/Diagrams/MultiAgent_WorkFlow.jpeg)
 
 ---
 
