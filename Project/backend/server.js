@@ -6,11 +6,22 @@ const db = require('./database');
 
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://inciden-t-iq.vercel.app'
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173', 'https://inciden-t-iq.vercel.app'
-  
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -21,6 +32,7 @@ app.use('/api/reports', require('./routes/reports').router);
 app.use('/api/ai', require('./routes/ai').router);
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
   const aiService = require('./services/aiService');
