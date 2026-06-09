@@ -46,8 +46,8 @@ exports.login = (req, res) => {
 
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
+      secure: true,
+      sameSite: 'none',
       maxAge: 24 * 60 * 60 * 1000 // 1 day
     });
 
@@ -76,8 +76,8 @@ exports.setRole = (req, res) => {
     const token = jwt.sign({ id: req.user.id, role, name: req.user.name, email: req.user.email }, JWT_SECRET, { expiresIn: '1d' });
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
+      secure: true,
+      sameSite: 'none',
       maxAge: 24 * 60 * 60 * 1000
     });
 
