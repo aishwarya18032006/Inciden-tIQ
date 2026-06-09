@@ -256,8 +256,8 @@ exports.emailReport = (req, res) => {
     try {
       const pdfBuffer = await generatePDF(report);
 
-      const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_MAIL', 'SMTP_PASS'];
-      const missingVars = requiredEnvVars.filter(key => !process.env[key]);
+      const { getSmtpMissingVars, createConfiguredTransporter } = require('../services/emailService');
+      const missingVars = getSmtpMissingVars();
       
       if (missingVars.length > 0) {
         return res.status(500).json({ 
@@ -265,15 +265,7 @@ exports.emailReport = (req, res) => {
         });
       }
 
-      let transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT),
-        secure: Number(process.env.SMTP_PORT) === 465,
-        auth: {
-          user: process.env.SMTP_MAIL,
-          pass: process.env.SMTP_PASS
-        }
-      });
+      let transporter = createConfiguredTransporter();
 
       await transporter.sendMail({
         from: process.env.SMTP_MAIL,
