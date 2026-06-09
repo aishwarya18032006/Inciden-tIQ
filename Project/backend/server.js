@@ -7,7 +7,8 @@ const db = require('./database');
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:5173', 'https://inciden-t-iq.vercel.app'
+  
   credentials: true,
 }));
 app.use(express.json());
