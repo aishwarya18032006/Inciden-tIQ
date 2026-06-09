@@ -22,7 +22,7 @@ and generating detailed AI-powered Root Cause Analysis (RCA) reports with confid
 
 # 🏗️ System Architecture
 
-![System Architecture]()
+![System Architecture](Project/Diagrams/System_Architecture.jpeg)
 
 ---
 
@@ -34,7 +34,7 @@ and generating detailed AI-powered Root Cause Analysis (RCA) reports with confid
 
 # 👥 User Workflow
 
-![User Flow](Project/Diagrams/MultiAgent_WorkFlow.jpeg)
+![User Flow](Project/Diagrams/UserWorkFlow.jpeg)
 
 ---
 
