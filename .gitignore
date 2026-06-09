@@ -1,11 +1,1 @@
-node_modules/
-.env
-.env.local
-.env.production
-dist/
-build/
-coverage/
-.vscode/
-.idea/
-*.log
-.DS_Store
+node_modules
