@@ -1,0 +1,21 @@
+#Team - 8 Members Details
+- **Sudarshan P**
+  -Phone: 8072017839
+  -Email: kit27.am54@gmail.com
+  -Degree: B.E (CSE AI&ML)
+  -College: KIT-Kalaignar Karunanidhi Institute Of Technology.
+- **Nithish Kumar N**
+  -Phone: 6369288064
+  -Email: kit27.am34@gmail.com
+  -Degree: B.E (CSE AI&ML)
+  -College: KIT-Kalaiganr karunanidhi Institute Of Technology.
+- **Aishwarya R**
+  -Phone: 7695866885
+  -Email: kit27.cse04@gmail.com
+  -Degree: B.E CSE
+  -College: KIT-Kalaignar Karunanidhi Institute Of Technology.
+- **Pradhakshini P**
+  -Phone: 8248601404
+  -Email: kit27.ad40@gmail.com
+  -Degree: B.TECH AI&DS
+  -College: KIT-Kalaignar Karunanidhi Institute Of Technology.
