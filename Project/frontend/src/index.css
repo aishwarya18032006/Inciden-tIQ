@@ -3,26 +3,48 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ai-bg: #FFFFFF;
-  --color-ai-surface: #F8FAFC;
-  --color-ai-surface-secondary: #F1F5F9;
-  --color-ai-border: #E2E8F0;
+  --color-theme-bg: var(--bg);
+  --color-theme-surface: var(--surface);
+  --color-theme-card: var(--card);
+  --color-theme-text: var(--text);
+  --color-theme-text-sec: var(--text-sec);
+  --color-theme-border: var(--border);
+  
+  --color-ai-bg: var(--bg);
+  --color-ai-surface: var(--surface);
+  --color-ai-border: var(--border);
+  --color-ai-text: var(--text);
+  --color-ai-muted: var(--text-sec);
   
   --color-ai-accent: #2563EB;
   --color-ai-accent-secondary: #06B6D4;
-  
   --color-ai-success: #10B981;
   --color-ai-warning: #F59E0B;
   --color-ai-danger: #EF4444;
-  
-  --color-ai-text: #0F172A;
-  --color-ai-muted: #64748B;
 }
 
 @layer base {
+  :root {
+    --bg: #FAFAFA;
+    --surface: #F8FAFC;
+    --card: #FFFFFF;
+    --text: #0F172A;
+    --text-sec: #64748B;
+    --border: #E2E8F0;
+  }
+
+  .dark {
+    --bg: #09090B;
+    --surface: #111113;
+    --card: #18181B;
+    --text: #FAFAFA;
+    --text-sec: #A1A1AA;
+    --border: #27272A;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    @apply antialiased text-slate-900 dark:text-slate-50 selection:bg-blue-600/20 selection:text-blue-900 transition-colors duration-500 bg-[#FAFAFA] dark:bg-slate-950;
+    @apply antialiased text-theme-text selection:bg-blue-600/20 selection:text-blue-900 transition-colors duration-500 bg-theme-bg;
   }
 }
 
@@ -45,23 +67,22 @@
     background-image: 
       linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    background-color: #FAFAFA;
+    background-color: var(--bg);
   }
   
   .dark .cloud-bg {
     background-image: 
       linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-color: #020617; /* slate-950 */
   }
 
   /* Core Glassmorphism */
   .ai-glass {
-    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl border border-white/50 dark:border-slate-800/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] ring-1 ring-slate-900/5 dark:ring-white/5;
+    @apply bg-theme-card/70 backdrop-blur-2xl border border-theme-border/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] ring-1 ring-slate-900/5 dark:ring-white/5 transition-colors duration-500;
   }
   
   .ai-glass-panel {
-    @apply bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white dark:border-slate-800 shadow-xl ring-1 ring-slate-900/5 dark:ring-white/5;
+    @apply bg-theme-card/90 backdrop-blur-xl border border-theme-border shadow-xl ring-1 ring-slate-900/5 dark:ring-white/5 transition-colors duration-500;
   }
 
   /* Glow Effects */
