@@ -1,4 +1,4 @@
-LIVE  LINK : https://inciden-t-iq.vercel.app/login
+LIVE  LINK : https://inciden-t-iq.vercel.app
 
 #  IncidentIQ
 
