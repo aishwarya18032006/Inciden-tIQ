@@ -44,21 +44,21 @@ const Sidebar = () => {
     <div className="w-20 md:w-64 h-screen fixed left-0 top-0 p-4 flex flex-col z-40">
       
       {/* Floating Glass Panel */}
-      <div className="flex-1 bg-white/80 dark:bg-[#111113]/80 backdrop-blur-xl border border-slate-200 dark:border-[#27272A] shadow-2xl rounded-[2rem] flex flex-col overflow-hidden">
+      <div className="flex-1 bg-white dark:bg-slate-900/80 dark:bg-[#111113]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700 dark:border-[#27272A] shadow-2xl rounded-[2rem] flex flex-col overflow-hidden">
         
         {/* Logo / Branding */}
-        <div className="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-slate-100 dark:border-[#27272A]/50 bg-white/50 dark:bg-black/20">
+        <div className="h-20 flex items-center justify-center md:justify-start md:px-6 border-b border-slate-100 dark:border-slate-800 dark:border-[#27272A]/50 bg-white dark:bg-slate-900/50 dark:bg-black/20">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="h-8 w-8 rounded-xl bg-blue-600 dark:bg-gradient-to-br dark:from-[#A855F7] dark:to-[#8B5CF6] flex items-center justify-center text-white shadow-lg shadow-blue-600/20 group-hover:scale-105 transition-transform">
               <TerminalSquare className="h-4 w-4" />
             </div>
-            <span className="font-bold tracking-tight text-slate-900 dark:text-white hidden md:block">IncidentIQ</span>
+            <span className="font-bold tracking-tight text-slate-900 dark:text-slate-100 dark:text-white hidden md:block">IncidentIQ</span>
           </Link>
         </div>
 
         {/* Links */}
         <div className="flex-1 py-6 px-3 flex flex-col gap-1 overflow-y-auto scrollbar-hide">
-          <div className="mb-2 px-3 text-[10px] font-bold text-slate-400 dark:text-[#A1A1AA] uppercase tracking-widest hidden md:block">Modules</div>
+          <div className="mb-2 px-3 text-[10px] font-bold text-slate-400 dark:text-slate-500 dark:text-[#A1A1AA] uppercase tracking-widest hidden md:block">Modules</div>
           
           {links.map((link) => {
             const Icon = link.icon;
@@ -71,14 +71,14 @@ const Sidebar = () => {
                 className={`relative flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-sm font-medium transition-all group ${
                   isActive 
                     ? "text-blue-700 dark:text-white" 
-                    : "text-slate-500 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white"
+                    : "text-slate-500 dark:text-slate-400 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-slate-100 dark:hover:text-white"
                 }`}
                 title={link.name}
               >
                 {isActive && (
                   <motion.div
                     layoutId="sidebar-active-bg"
-                    className="absolute inset-0 bg-blue-50 dark:bg-white/5 border border-blue-100 dark:border-white/10 rounded-xl"
+                    className="absolute inset-0 bg-blue-50 dark:bg-blue-900/20 dark:bg-white/5 border border-blue-100 dark:border-white/10 rounded-xl"
                     initial={false}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
@@ -89,7 +89,7 @@ const Sidebar = () => {
             );
           })}
 
-          <div className="mt-8 mb-2 px-3 text-[10px] font-bold text-slate-400 dark:text-[#A1A1AA] uppercase tracking-widest hidden md:block">System</div>
+          <div className="mt-8 mb-2 px-3 text-[10px] font-bold text-slate-400 dark:text-slate-500 dark:text-[#A1A1AA] uppercase tracking-widest hidden md:block">System</div>
           
           {systemLinks.map((link) => {
             const Icon = link.icon;
@@ -102,14 +102,14 @@ const Sidebar = () => {
                 className={`relative flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-sm font-medium transition-all group ${
                   isActive 
                     ? "text-blue-700 dark:text-white" 
-                    : "text-slate-500 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white"
+                    : "text-slate-500 dark:text-slate-400 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-slate-100 dark:hover:text-white"
                 }`}
                 title={link.name}
               >
                 {isActive && (
                   <motion.div
                     layoutId="sidebar-active-bg"
-                    className="absolute inset-0 bg-blue-50 dark:bg-white/5 border border-blue-100 dark:border-white/10 rounded-xl"
+                    className="absolute inset-0 bg-blue-50 dark:bg-blue-900/20 dark:bg-white/5 border border-blue-100 dark:border-white/10 rounded-xl"
                     initial={false}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
@@ -122,13 +122,13 @@ const Sidebar = () => {
         </div>
 
         {/* User Mini Profile */}
-        <div className="p-4 border-t border-slate-100 dark:border-[#27272A]/50 bg-slate-50 dark:bg-black/20">
+        <div className="p-4 border-t border-slate-100 dark:border-slate-800 dark:border-[#27272A]/50 bg-slate-50 dark:bg-slate-800/50 dark:bg-black/20">
           <div className="flex items-center justify-center md:justify-start gap-3">
             <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-[#18181B] border border-blue-200 dark:border-[#27272A] flex items-center justify-center text-blue-700 dark:text-[#FAFAFA] font-bold text-sm flex-shrink-0">
               {user?.name?.charAt(0) || 'U'}
             </div>
             <div className="flex-1 min-w-0 hidden md:block">
-              <p className="text-sm font-bold text-slate-900 dark:text-white truncate">{user?.name || 'Loading...'}</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-slate-100 dark:text-white truncate">{user?.name || 'Loading...'}</p>
               <p className="text-xs text-blue-600 dark:text-[#A855F7] font-medium truncate">{user?.role}</p>
             </div>
           </div>

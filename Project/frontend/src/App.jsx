@@ -14,6 +14,7 @@ import ManagerAnalytics from './pages/ManagerAnalytics';
 import PlaceholderPage from './pages/PlaceholderPage';
 import Layout from './components/layout/Layout';
 import GlobalChatbot from './components/GlobalChatbot';
+import ThemeToggle from './components/ThemeToggle';
 import { Toaster } from 'react-hot-toast';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -37,6 +38,7 @@ function App() {
     <Router>
       <Toaster position="top-right" />
       <GlobalChatbot />
+      <ThemeToggle />
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         {/* On login, always redirect to /select-role first if sessionRole is not set */}

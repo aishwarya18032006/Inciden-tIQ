@@ -35,18 +35,18 @@ const ManagerAnalytics = () => {
           <BarChart2 className="h-6 w-6 text-white dark:text-blue-500" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">System Analytics</h1>
-          <p className="text-slate-500 dark:text-[#A1A1AA] text-sm mt-1">Deep dive into incident trends and root cause categories.</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 dark:text-white tracking-tight">System Analytics</h1>
+          <p className="text-slate-500 dark:text-slate-400 dark:text-[#A1A1AA] text-sm mt-1">Deep dive into incident trends and root cause categories.</p>
         </div>
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Severity Distribution */}
-        <motion.div variants={itemVariants} className="bg-white/90 dark:bg-[#111113]/90 backdrop-blur-xl border border-slate-200 dark:border-[#27272A] shadow-xl p-8 rounded-[2rem] flex flex-col h-[420px]">
+        <motion.div variants={itemVariants} className="bg-white dark:bg-slate-900/90 dark:bg-[#111113]/90 backdrop-blur-xl border border-slate-200 dark:border-slate-700 dark:border-[#27272A] shadow-xl p-8 rounded-[2rem] flex flex-col h-[420px]">
           <div className="flex justify-between items-center mb-8">
-            <h3 className="font-bold text-lg text-slate-900 dark:text-white tracking-tight">Severity Distribution</h3>
-            <div className="p-2 bg-slate-50 dark:bg-[#18181B] border border-slate-200 dark:border-[#27272A] rounded-lg">
-              <PieChartIcon className="h-4 w-4 text-slate-400 dark:text-[#A1A1AA]" />
+            <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100 dark:text-white tracking-tight">Severity Distribution</h3>
+            <div className="p-2 bg-slate-50 dark:bg-slate-800/50 dark:bg-[#18181B] border border-slate-200 dark:border-slate-700 dark:border-[#27272A] rounded-lg">
+              <PieChartIcon className="h-4 w-4 text-slate-400 dark:text-slate-500 dark:text-[#A1A1AA]" />
             </div>
           </div>
           <div className="flex-1 min-h-0">
@@ -77,11 +77,11 @@ const ManagerAnalytics = () => {
         </motion.div>
 
         {/* Root Cause Categories */}
-        <motion.div variants={itemVariants} className="bg-white/90 dark:bg-[#111113]/90 backdrop-blur-xl border border-slate-200 dark:border-[#27272A] shadow-xl p-8 rounded-[2rem] flex flex-col h-[420px]">
+        <motion.div variants={itemVariants} className="bg-white dark:bg-slate-900/90 dark:bg-[#111113]/90 backdrop-blur-xl border border-slate-200 dark:border-slate-700 dark:border-[#27272A] shadow-xl p-8 rounded-[2rem] flex flex-col h-[420px]">
           <div className="flex justify-between items-center mb-8">
-            <h3 className="font-bold text-lg text-slate-900 dark:text-white tracking-tight">Common Root Causes</h3>
-            <div className="p-2 bg-slate-50 dark:bg-[#18181B] border border-slate-200 dark:border-[#27272A] rounded-lg">
-              <BarChart2 className="h-4 w-4 text-slate-400 dark:text-[#A1A1AA]" />
+            <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100 dark:text-white tracking-tight">Common Root Causes</h3>
+            <div className="p-2 bg-slate-50 dark:bg-slate-800/50 dark:bg-[#18181B] border border-slate-200 dark:border-slate-700 dark:border-[#27272A] rounded-lg">
+              <BarChart2 className="h-4 w-4 text-slate-400 dark:text-slate-500 dark:text-[#A1A1AA]" />
             </div>
           </div>
           <div className="flex-1 min-h-0">

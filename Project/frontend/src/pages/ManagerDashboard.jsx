@@ -55,40 +55,40 @@ const ManagerDashboard = () => {
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 space-y-8 pb-20">
       
-      <div className="bg-white border border-slate-200 shadow-sm rounded-3xl p-8 relative overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm rounded-3xl p-8 relative overflow-hidden">
         <div className="max-w-2xl relative z-10">
           <div className="flex items-center gap-2 text-blue-600 mb-3">
             <ShieldAlert className="h-5 w-5" />
             <span className="text-xs font-bold uppercase tracking-widest">IT Manager Workspace</span>
           </div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">Action Center</h1>
-          <p className="text-slate-500 leading-relaxed font-medium">
+          <h1 className="text-3xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-4">Action Center</h1>
+          <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
             Review escalated incidents and Root Cause Analysis reports submitted by your engineering team.
           </p>
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="p-6 border-b border-slate-200 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-slate-900">Submitted Reports</h2>
-          <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-lg text-xs font-bold border border-blue-100">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+        <div className="p-6 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">Submitted Reports</h2>
+          <span className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-lg text-xs font-bold border border-blue-100">
             {reports.length} Pending
           </span>
         </div>
 
         {loading ? (
-          <div className="p-12 flex justify-center"><Activity className="h-6 w-6 text-slate-400 animate-spin" /></div>
+          <div className="p-12 flex justify-center"><Activity className="h-6 w-6 text-slate-400 dark:text-slate-500 animate-spin" /></div>
         ) : reports.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center">
             <CheckCircle className="h-12 w-12 text-emerald-500 mb-4 opacity-50" />
-            <h3 className="text-lg font-bold text-slate-900 mb-2">All Caught Up</h3>
-            <p className="text-slate-500">There are no reports pending your review.</p>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">All Caught Up</h3>
+            <p className="text-slate-500 dark:text-slate-400">There are no reports pending your review.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50 text-xs font-bold text-slate-500 uppercase tracking-widest whitespace-nowrap">
+                <tr className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest whitespace-nowrap">
                   <th className="px-6 py-4">Developer</th>
                   <th className="px-6 py-4">Incident</th>
                   <th className="px-6 py-4">Severity</th>
@@ -99,25 +99,25 @@ const ManagerDashboard = () => {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {reports.map((report) => (
-                  <tr key={report.id} className="hover:bg-slate-50 transition-colors">
+                  <tr key={report.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                     <td className="px-6 py-4">
-                      <div className="font-bold text-slate-900 mb-1">{report.submit_name || report.developer_name}</div>
-                      <div className="text-xs text-slate-500">{report.submit_email}</div>
+                      <div className="font-bold text-slate-900 dark:text-slate-100 mb-1">{report.submit_name || report.developer_name}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">{report.submit_email}</div>
                       <div className="text-xs font-bold text-blue-600 mt-1">{report.submit_team}</div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="font-bold text-slate-900">{report.incident_title || 'Unnamed Incident'}</div>
-                      <div className="text-xs text-slate-500 font-mono mt-1">Confidence: {report.confidence_score}%</div>
+                      <div className="font-bold text-slate-900 dark:text-slate-100">{report.incident_title || 'Unnamed Incident'}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Confidence: {report.confidence_score}%</div>
                     </td>
                     <td className="px-6 py-4">
                       <span className={`inline-flex px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border ${
-                        report.severity_level === 'Critical' ? 'bg-red-50 text-red-600 border-red-200' :
-                        'bg-amber-50 text-amber-600 border-amber-200'
+                        report.severity_level === 'Critical' ? 'bg-red-50 dark:bg-red-900/20 text-red-600 border-red-200' :
+                        'bg-amber-50 dark:bg-amber-900/20 text-amber-600 border-amber-200'
                       }`}>
                         {report.severity_level}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-sm text-slate-500">
+                    <td className="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
                       {report.submitted_at ? new Date(report.submitted_at).toLocaleDateString() : new Date(report.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4">
@@ -127,13 +127,13 @@ const ManagerDashboard = () => {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex justify-end gap-2">
-                        <button onClick={() => setActionModal({ show: true, reportId: report.incident_id, type: 'approve' })} className="p-2 text-emerald-600 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition-colors" title="Approve">
+                        <button onClick={() => setActionModal({ show: true, reportId: report.incident_id, type: 'approve' })} className="p-2 text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 hover:bg-emerald-100 rounded-lg transition-colors" title="Approve">
                           <Check className="h-5 w-5" />
                         </button>
-                        <button onClick={() => setActionModal({ show: true, reportId: report.incident_id, type: 'reject' })} className="p-2 text-red-600 bg-red-50 hover:bg-red-100 rounded-lg transition-colors" title="Reject">
+                        <button onClick={() => setActionModal({ show: true, reportId: report.incident_id, type: 'reject' })} className="p-2 text-red-600 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 rounded-lg transition-colors" title="Reject">
                           <X className="h-5 w-5" />
                         </button>
-                        <Link to={`/reports/${report.incident_id}`} className="p-2 text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors" title="View">
+                        <Link to={`/reports/${report.incident_id}`} className="p-2 text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 rounded-lg transition-colors" title="View">
                           <ChevronRight className="h-5 w-5" />
                         </Link>
                       </div>
@@ -154,28 +154,28 @@ const ManagerDashboard = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full border border-slate-200"
+              className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-8 max-w-md w-full border border-slate-200 dark:border-slate-700"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className={`p-3 rounded-full ${actionModal.type === 'approve' ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'}`}>
                   {actionModal.type === 'approve' ? <Check className="h-6 w-6" /> : <X className="h-6 w-6" />}
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 capitalize">{actionModal.type} Report</h3>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-slate-100 capitalize">{actionModal.type} Report</h3>
               </div>
               <div className="space-y-4 mb-8">
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Manager Comment (Optional)</label>
+                  <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Manager Comment (Optional)</label>
                   <textarea 
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 font-medium text-slate-900"
+                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 font-medium text-slate-900 dark:text-slate-100"
                     rows={4}
                     placeholder="Add notes for the developer..."
                   />
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={() => setActionModal({ show: false, reportId: null, type: null })} className="flex-1 py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors">Cancel</button>
+                <button onClick={() => setActionModal({ show: false, reportId: null, type: null })} className="flex-1 py-3 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition-colors">Cancel</button>
                 <button onClick={handleAction} className={`flex-1 py-3 px-4 text-white font-bold rounded-xl transition-colors ${actionModal.type === 'approve' ? 'bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20' : 'bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/20'}`}>
                   Confirm
                 </button>

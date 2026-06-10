@@ -93,24 +93,24 @@ const GlobalChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="bg-white/90 backdrop-blur-3xl border border-white/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] rounded-[32px] flex flex-col relative overflow-visible mb-6 w-[calc(100vw-3rem)] sm:w-[360px] h-[520px] max-h-[75vh]"
+            className="bg-white dark:bg-slate-900/90 dark:bg-slate-900/90 backdrop-blur-3xl border border-white dark:border-slate-700/60 dark:border-slate-700/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] rounded-[32px] flex flex-col relative overflow-visible mb-6 w-[calc(100vw-3rem)] sm:w-[360px] h-[520px] max-h-[75vh]"
           >
             {/* Soft background glows inside panel */}
             <div className="absolute top-[-50px] right-[-50px] w-48 h-48 bg-purple-400/15 rounded-full blur-[60px] pointer-events-none" />
             <div className="absolute bottom-[-50px] left-[-50px] w-48 h-48 bg-blue-400/15 rounded-full blur-[60px] pointer-events-none" />
 
             {/* Header */}
-            <div className="px-5 py-4 flex items-center justify-between border-b border-slate-100/60 relative z-10 bg-white/60 backdrop-blur-md rounded-t-[32px]">
+            <div className="px-5 py-4 flex items-center justify-between border-b border-slate-100 dark:border-slate-800/60 dark:border-slate-800/60 relative z-10 bg-white dark:bg-slate-900/60 dark:bg-slate-900/60 backdrop-blur-md rounded-t-[32px]">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="h-9 w-9 rounded-[14px] bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-md shadow-blue-500/20">
                     <Sparkles className="h-4 w-4 text-white" />
                   </div>
-                  <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-slate-700 rounded-full"></div>
                 </div>
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1.5">
-                    <h3 className="font-bold text-slate-900 text-sm tracking-tight">AI Assistant</h3>
+                    <h3 className="font-bold text-slate-900 dark:text-slate-100 dark:text-slate-100 text-sm tracking-tight">AI Assistant</h3>
                     {isTyping ? (
                       <span className="px-1.5 py-0.5 rounded-md bg-amber-100/80 border border-amber-200 text-amber-700 text-[9px] font-bold uppercase tracking-wider ml-1">
                         Temporarily Busy
@@ -121,12 +121,12 @@ const GlobalChatbot = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-[11px] text-slate-500 font-medium tracking-wide">IncidentIQ Copilot &bull; {pageContext}</p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-400 font-medium tracking-wide">IncidentIQ Copilot &bull; {pageContext}</p>
                 </div>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100/50 rounded-xl transition-colors"
+                className="p-1.5 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 dark:hover:bg-slate-800/50 rounded-xl transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -155,7 +155,7 @@ const GlobalChatbot = () => {
                   <div className={`max-w-[82%] rounded-2xl p-3.5 text-[13.5px] leading-relaxed whitespace-pre-wrap shadow-sm ${
                     msg.sender === 'user' 
                     ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-br-sm shadow-blue-500/20' 
-                    : 'bg-white border border-slate-100/80 text-slate-800 rounded-bl-sm shadow-slate-200/50'
+                    : 'bg-white dark:bg-slate-900 dark:bg-slate-800 border border-slate-100 dark:border-slate-800/80 dark:border-slate-700/80 text-slate-800 dark:text-slate-200 dark:text-slate-200 rounded-bl-sm shadow-slate-200/50 dark:shadow-none'
                   }`}>
                     {msg.text}
                   </div>
@@ -174,7 +174,7 @@ const GlobalChatbot = () => {
                     <button
                       key={i}
                       onClick={() => handleSend(null, action)}
-                      className="px-3 py-1.5 bg-white/80 border border-slate-200/80 hover:border-blue-300 hover:bg-blue-50/80 text-slate-600 hover:text-blue-600 text-[11px] font-semibold rounded-full shadow-sm transition-all"
+                      className="px-3 py-1.5 bg-white dark:bg-slate-900/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 dark:border-slate-700/80 hover:border-blue-300 hover:bg-blue-50/80 dark:hover:bg-blue-900/40 text-slate-600 dark:text-slate-300 dark:text-slate-300 hover:text-blue-600 text-[11px] font-semibold rounded-full shadow-sm transition-all"
                     >
                       {action}
                     </button>
@@ -191,7 +191,7 @@ const GlobalChatbot = () => {
                   <div className="h-7 w-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shrink-0 mr-2 shadow-sm">
                     <Sparkles className="h-3.5 w-3.5 text-white" />
                   </div>
-                  <div className="bg-white border border-slate-100/80 text-slate-500 rounded-2xl rounded-bl-sm px-4 py-3.5 shadow-sm flex items-center gap-1 h-[46px]">
+                  <div className="bg-white dark:bg-slate-900 dark:bg-slate-800 border border-slate-100 dark:border-slate-800/80 dark:border-slate-700/80 text-slate-500 dark:text-slate-400 dark:text-slate-400 rounded-2xl rounded-bl-sm px-4 py-3.5 shadow-sm dark:shadow-none flex items-center gap-1 h-[46px]">
                     <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
                     <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
                     <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
@@ -202,14 +202,14 @@ const GlobalChatbot = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 bg-white/70 backdrop-blur-xl border-t border-slate-100/60 relative z-10 shrink-0 rounded-b-[32px]">
+            <div className="p-4 bg-white dark:bg-slate-900/70 dark:bg-slate-900/70 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800/60 dark:border-slate-800/60 relative z-10 shrink-0 rounded-b-[32px]">
               <form onSubmit={handleSend} className="relative flex items-center group">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask anything..."
-                  className="w-full pl-4 pr-12 py-3 bg-white/80 backdrop-blur-md border border-slate-200/80 rounded-[20px] text-[13.5px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-[3px] focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
+                  className="w-full pl-4 pr-12 py-3 bg-white dark:bg-slate-900/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700/80 dark:border-slate-700/80 rounded-[20px] text-[13.5px] text-slate-800 dark:text-slate-200 dark:text-slate-200 placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:ring-[3px] focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
                 />
                 <button 
                   type="submit"
@@ -231,7 +231,7 @@ const GlobalChatbot = () => {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="w-16 h-16 rounded-full flex items-center justify-center transition-all relative group z-50 bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(37,99,235,0.4)] before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-600 before:to-purple-600 before:rounded-full before:-z-10"
+            className="w-16 h-16 rounded-full flex items-center justify-center transition-all relative group z-50 bg-white dark:bg-slate-900/10 backdrop-blur-xl border border-white dark:border-slate-700/20 shadow-[0_8px_32px_rgba(37,99,235,0.4)] before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-600 before:to-purple-600 before:rounded-full before:-z-10"
           >
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             <Sparkles className="h-7 w-7 text-white" />

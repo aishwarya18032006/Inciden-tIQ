@@ -8,8 +8,8 @@ const Layout = () => {
       
       {/* Background radial glows for premium depth */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-blue-100/40 blur-[120px] mix-blend-multiply" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-indigo-100/40 blur-[120px] mix-blend-multiply" />
+        <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-blue-100/40 dark:bg-blue-900/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-indigo-100/40 dark:bg-indigo-900/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen" />
       </div>
 
       {/* Floating Navigation Wrapper */}

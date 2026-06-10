@@ -118,8 +118,8 @@ const CreateIncident = () => {
       
       {/* Title Area */}
       <div className="mb-12 text-center">
-        <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-2">Analyse Incident</h1>
-        <p className="text-slate-500 dark:text-[#A1A1AA]">Follow the guided workflow to generate a multi-agent RCA report.</p>
+        <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-slate-100 dark:text-white mb-2">Analyse Incident</h1>
+        <p className="text-slate-500 dark:text-slate-400 dark:text-[#A1A1AA]">Follow the guided workflow to generate a multi-agent RCA report.</p>
       </div>
 
       {/* Hero Stepper component */}
@@ -161,12 +161,12 @@ const CreateIncident = () => {
                   ) : isSkipped ? (
                     <ChevronRight className="w-5 h-5 text-white" />
                   ) : (
-                    <span className={`text-sm font-bold ${isActive ? 'text-white' : 'text-slate-400 dark:text-[#A1A1AA]'}`}>
+                    <span className={`text-sm font-bold ${isActive ? 'text-white' : 'text-slate-400 dark:text-slate-500 dark:text-[#A1A1AA]'}`}>
                       {step.num}
                     </span>
                   )}
                 </motion.div>
-                <span className={`absolute top-12 text-xs font-bold tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${isActive ? 'text-blue-600 dark:text-[#A855F7]' : 'text-slate-400 dark:text-[#71717A]'}`}>
+                <span className={`absolute top-12 text-xs font-bold tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${isActive ? 'text-blue-600 dark:text-[#A855F7]' : 'text-slate-400 dark:text-slate-500 dark:text-[#71717A]'}`}>
                   {step.title}
                 </span>
               </div>
@@ -178,12 +178,12 @@ const CreateIncident = () => {
       {/* Incident Title Input (Required before finishing) */}
       {activeStep === 1 && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 max-w-3xl mx-auto w-full">
-           <label className="block text-xs font-bold text-slate-500 dark:text-[#A1A1AA] uppercase tracking-widest mb-2">Incident Title (Optional)</label>
+           <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-[#A1A1AA] uppercase tracking-widest mb-2">Incident Title (Optional)</label>
            <input 
              type="text" 
              value={title} 
              onChange={(e) => setTitle(e.target.value)} 
-             className="w-full px-4 py-3 bg-white dark:bg-[#111113] border border-slate-200 dark:border-[#27272A] shadow-sm rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 dark:focus:border-[#A855F7] transition-all" 
+             className="w-full px-4 py-3 bg-white dark:bg-slate-900 dark:bg-[#111113] border border-slate-200 dark:border-slate-700 dark:border-[#27272A] shadow-sm rounded-xl text-slate-900 dark:text-slate-100 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 dark:focus:border-[#A855F7] transition-all" 
              placeholder="e.g. Database Connection Timeout" 
            />
         </motion.div>
@@ -204,24 +204,24 @@ const CreateIncident = () => {
               className="ai-glass-panel rounded-[2rem] p-10"
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl border border-blue-100/50">
+                <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-xl border border-blue-100/50">
                   <Activity className="h-6 w-6" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800">Timeline Information</h2>
+                <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">Timeline Information</h2>
               </div>
-              <p className="text-slate-500 mb-8">Provide the sequence of events that occurred before and during the incident.</p>
+              <p className="text-slate-500 dark:text-slate-400 mb-8">Provide the sequence of events that occurred before and during the incident.</p>
               
               <div className="space-y-6">
                 <textarea 
                   value={formData.timeline}
                   onChange={(e) => setFormData({...formData, timeline: e.target.value})}
                   rows={8}
-                  className="w-full px-5 py-4 bg-slate-50/50 border border-slate-200/50 rounded-2xl text-slate-700 font-mono text-[13px] focus:outline-none focus:ring-4 focus:ring-blue-600/10 focus:border-blue-500 transition-all resize-none shadow-inner"
+                  className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800/50/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl text-slate-700 dark:text-slate-300 font-mono text-[13px] focus:outline-none focus:ring-4 focus:ring-blue-600/10 focus:border-blue-500 transition-all resize-none shadow-inner"
                   placeholder="10:00 AM Deployment Started&#10;10:05 AM Error Rate Increased&#10;10:10 AM Service Unavailable&#10;10:20 AM Rollback Started"
                 />
                 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-wide">
+                  <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors uppercase tracking-wide">
                     <Upload className="h-4 w-4" /> Upload Timeline File
                     <input type="file" className="hidden" accept=".txt,.log,.csv" onChange={(e) => handleFileUpload('timeline', e)} />
                   </label>
@@ -249,30 +249,30 @@ const CreateIncident = () => {
               className="ai-glass-panel rounded-[2rem] p-10"
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl border border-blue-100/50">
+                <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-xl border border-blue-100/50">
                   <Terminal className="h-6 w-6" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800">Error Logs</h2>
+                <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">Error Logs</h2>
               </div>
-              <p className="text-slate-500 mb-8">Paste or upload application logs for AI analysis.</p>
+              <p className="text-slate-500 dark:text-slate-400 mb-8">Paste or upload application logs for AI analysis.</p>
               
               <div className="space-y-6">
                 <textarea 
                   value={formData.logs}
                   onChange={(e) => setFormData({...formData, logs: e.target.value})}
                   rows={8}
-                  className="w-full px-5 py-4 bg-slate-50/50 border border-slate-200/50 rounded-2xl text-slate-700 font-mono text-[13px] focus:outline-none focus:ring-4 focus:ring-blue-600/10 focus:border-blue-500 transition-all resize-none shadow-inner"
+                  className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800/50/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl text-slate-700 dark:text-slate-300 font-mono text-[13px] focus:outline-none focus:ring-4 focus:ring-blue-600/10 focus:border-blue-500 transition-all resize-none shadow-inner"
                   placeholder="[ERROR] 2024-03-10 10:05:22 Database connection timeout...&#10;[WARN] 2024-03-10 10:05:25 Retrying connection..."
                 />
                 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-wide">
+                  <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors uppercase tracking-wide">
                     <Upload className="h-4 w-4" /> Upload Log File
                     <input type="file" className="hidden" accept=".txt,.log" onChange={(e) => handleFileUpload('logs', e)} />
                   </label>
                   
                   <div className="flex w-full sm:w-auto items-center gap-4">
-                    <button onClick={() => setActiveStep(1)} className="flex-1 sm:flex-none px-6 py-3.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">Back</button>
+                    <button onClick={() => setActiveStep(1)} className="flex-1 sm:flex-none px-6 py-3.5 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Back</button>
                     <button 
                       disabled={!formData.logs.trim()}
                       onClick={() => handleContinue(2)}
@@ -298,35 +298,35 @@ const CreateIncident = () => {
             >
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-blue-50 text-blue-600 rounded-xl border border-blue-100/50">
+                  <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-xl border border-blue-100/50">
                     <FileCode className="h-6 w-6" />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-800">Recent Git Changes</h2>
+                  <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">Recent Git Changes</h2>
                 </div>
-                <span className="px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-[11px] font-bold text-slate-500 uppercase tracking-widest">Optional</span>
+                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Optional</span>
               </div>
-              <p className="text-slate-500 mb-8">Paste recent code changes if available to help AI correlate deployment risks.</p>
+              <p className="text-slate-500 dark:text-slate-400 mb-8">Paste recent code changes if available to help AI correlate deployment risks.</p>
               
               <div className="space-y-6">
                 <textarea 
                   value={formData.gitDiff}
                   onChange={(e) => setFormData({...formData, gitDiff: e.target.value})}
                   rows={8}
-                  className="w-full px-5 py-4 bg-slate-50/50 border border-slate-200/50 rounded-2xl text-slate-700 font-mono text-[13px] focus:outline-none focus:ring-4 focus:ring-blue-600/10 focus:border-blue-500 transition-all resize-none shadow-inner"
+                  className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800/50/50 border border-slate-200 dark:border-slate-700/50 rounded-2xl text-slate-700 dark:text-slate-300 font-mono text-[13px] focus:outline-none focus:ring-4 focus:ring-blue-600/10 focus:border-blue-500 transition-all resize-none shadow-inner"
                   placeholder="diff --git a/src/db/connection.js b/src/db/connection.js&#10;--- a/src/db/connection.js&#10;+++ b/src/db/connection.js&#10;- const timeout = 30000;&#10;+ const timeout = 5000;"
                 />
                 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-wide">
+                  <label className="cursor-pointer inline-flex items-center gap-2 text-[13px] font-bold text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors uppercase tracking-wide">
                     <Upload className="h-4 w-4" /> Upload Git Diff File
                     <input type="file" className="hidden" accept=".txt,.diff,.patch" onChange={(e) => handleFileUpload('gitDiff', e)} />
                   </label>
                   
                   <div className="flex w-full sm:w-auto items-center gap-2 sm:gap-4">
-                    <button onClick={() => setActiveStep(2)} className="flex-1 sm:flex-none px-4 py-3.5 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">Back</button>
+                    <button onClick={() => setActiveStep(2)} className="flex-1 sm:flex-none px-4 py-3.5 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Back</button>
                     <button 
                       onClick={() => handleSkip(3)}
-                      className="flex-1 sm:flex-none px-4 py-3.5 text-sm font-bold text-slate-400 hover:text-slate-700 transition-colors"
+                      className="flex-1 sm:flex-none px-4 py-3.5 text-sm font-bold text-slate-400 dark:text-slate-500 hover:text-slate-700 transition-colors"
                     >
                       Skip
                     </button>
@@ -353,16 +353,16 @@ const CreateIncident = () => {
               transition={{ duration: 0.3 }}
               className="ai-glass-panel rounded-[2rem] p-12 text-center flex flex-col items-center"
             >
-              <div className="h-24 w-24 bg-blue-50 border border-blue-100 rounded-[2rem] flex items-center justify-center mb-8 shadow-sm">
+              <div className="h-24 w-24 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 rounded-[2rem] flex items-center justify-center mb-8 shadow-sm">
                 <Sparkles className="h-12 w-12 text-blue-600" />
               </div>
-              <h2 className="text-3xl font-black text-slate-800 tracking-tight mb-4">Ready For AI Analysis</h2>
-              <p className="text-slate-500 max-w-md mx-auto mb-10 leading-relaxed text-[15px]">
+              <h2 className="text-3xl font-black text-slate-800 dark:text-slate-200 tracking-tight mb-4">Ready For AI Analysis</h2>
+              <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto mb-10 leading-relaxed text-[15px]">
                 The Multi-Agent system will now combine timeline events, error logs, and git changes to generate a structured Root Cause Analysis report.
               </p>
               
               {errorMsg && (
-                <div className="w-full max-w-md bg-red-50 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-sm font-medium mb-6 text-left flex items-start gap-3">
+                <div className="w-full max-w-md bg-red-50 dark:bg-red-900/20 border border-red-100 text-red-600 px-4 py-3 rounded-xl text-sm font-medium mb-6 text-left flex items-start gap-3">
                   <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" />
                   <div className="flex flex-col">
                     <span>{errorMsg}</span>
@@ -373,7 +373,7 @@ const CreateIncident = () => {
 
               {loading ? (
                 <div className="w-full max-w-md space-y-4">
-                   <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                   <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                      <motion.div 
                        className="h-full bg-gradient-to-r from-blue-500 to-indigo-500"
                        initial={{ width: "0%" }}
@@ -381,11 +381,11 @@ const CreateIncident = () => {
                        transition={{ duration: 15, ease: "linear" }}
                      />
                    </div>
-                   <p className="text-sm font-bold text-slate-400 uppercase tracking-widest animate-pulse">{loadingText}</p>
+                   <p className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest animate-pulse">{loadingText}</p>
                 </div>
               ) : (
                 <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center">
-                  <button onClick={() => setActiveStep(3)} className="px-6 py-4 text-sm font-bold text-slate-500 hover:text-slate-800 transition-colors">
+                  <button onClick={() => setActiveStep(3)} className="px-6 py-4 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">
                     Go Back
                   </button>
                   <button 
