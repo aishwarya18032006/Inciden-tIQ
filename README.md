@@ -259,7 +259,7 @@ Reports can be:
 
 # 👨‍💻 Team
 
-**Project Name:Tect Tetra**
+Project Name:Tect Tetra
 **Team Members : Aishwarya R | Sudarshan P | Nithiskumar N | Pradhakshini P
 
 **Category:** AI-Powered Incident Intelligence Platform
